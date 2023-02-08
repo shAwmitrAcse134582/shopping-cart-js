@@ -13,20 +13,29 @@ function updateCase(isIncrease) {
     caseNumberField.value = newCaseNumber;
     return newCaseNumber;
 }
-document.getElementById('btn-case-plus').addEventListener('click', function () {
-    const newCaseNumber = updateCase(true);
 
+function updateCasetotalPrice(newCaseNumber) {
     const caseTotalPrice = newCaseNumber * 59;
     const caseTotaElement = document.getElementById('case-total');
     caseTotaElement.innerText = caseTotalPrice;
+}
+
+document.getElementById('btn-case-plus').addEventListener('click', function () {
+    const newCaseNumber = updateCase(true);
+    updateCasetotalPrice(newCaseNumber);
+
 
 })
 //*-operation in  in phonecase
 document.getElementById('btn-case-minus').addEventListener('click', function () {
-    const caseNumberFieldMinus = document.getElementById('case-number-field');
+    // const caseNumberFieldMinus = document.getElementById('case-number-field');
     // const caseNumberStringMinus = caseNumberFieldMinus.value;
     // const previousCaseNumberMinus = parseInt(caseNumberStringMinus);
     // const newCaseNumberMinus = previousCaseNumberMinus - 1;
     // caseNumberFieldMinus.value = newCaseNumberMinus;
-    updateCase(false);
+    const newCaseNumber = updateCase(false);
+    // const caseTotalPrice = (newCaseNumber * 59);
+    // const caseTotaElement = document.getElementById('case-total');
+    // caseTotaElement.innerText = caseTotalPrice;
+    updateCasetotalPrice(newCaseNumber);
 })
